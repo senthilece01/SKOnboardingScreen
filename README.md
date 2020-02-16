@@ -16,7 +16,7 @@ A library that walks a user through multiple on-boarding screens in a simple and
 
 You just need to add `sk_onboarding_screen` as a [dependency in your pubspec.yaml file.](https://flutter.dev/docs/development/packages-and-plugins/using-packages)
 
-```
+```yaml
 dependencies:
   sk_onboarding_screen: ^0.0.1
 ```
@@ -25,11 +25,13 @@ dependencies:
 
 ### Import this class
 
-`import 'package:sk_onboarding_screen/sk_onboarding_screen.dart';`
+```dart
+import 'package:sk_onboarding_screen/sk_onboarding_screen.dart;
+```
 
 ## SKOnboardingModel
 
-```
+```dart
   final pages = [
     SkOnboardingModel(
         title: 'Choose your item',
@@ -55,7 +57,7 @@ dependencies:
 ```
 ### Pass it into SKOnboardingScreen Widget
 
-```
+```dart
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
