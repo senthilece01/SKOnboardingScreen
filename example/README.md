@@ -1,4 +1,4 @@
-# example
+# SKOnboarding Example
 
 A new Flutter application.
 
