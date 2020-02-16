@@ -1,8 +1,8 @@
 name: sk_onboarding_screen
 description: A new Flutter package.
 version: 0.0.1
-author:
-homepage:
+author: Senthil Kumar<senthilece01@gmail.com>
+homepage: https://github.com/senthilece01/SKOnboardingScreen.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
