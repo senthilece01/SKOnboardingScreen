@@ -8,10 +8,6 @@ A library that walks a user through multiple on-boarding screens in a simple and
 
 ![SKOnBoarding Demo](https://user-images.githubusercontent.com/10756609/74606492-cecdeb80-50f6-11ea-9cdb-a4497a718dc8.gif)
 
-## 📸 Screenshot
-
-![SKOnBoarding Screen](https://user-images.githubusercontent.com/10756609/74606520-181e3b00-50f7-11ea-84b5-9c549396391e.png)
-
 ## 💻 Installation
 
 You just need to add `sk_onboarding_screen` as a [dependency in your pubspec.yaml file.](https://flutter.dev/docs/development/packages-and-plugins/using-packages)
@@ -79,7 +75,7 @@ import 'package:sk_onboarding_screen/sk_onboarding_screen.dart;
 
 ## 📃License
 
-    Copyright 2019, Senthil Kumar
+    Copyright 2020, Senthil Kumar
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
