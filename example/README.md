@@ -1,16 +1,74 @@
 # SKOnboarding Example
+```dart
+import 'package:flutter/material.dart';
+import 'package:sk_onboarding_screen/flutter_onboarding.dart';
+import 'package:sk_onboarding_screen/sk_onboarding_screen.dart';
 
-A new Flutter application.
+void main() => runApp(MyApp());
 
-## Getting Started
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
+  }
+}
 
-This project is a starting point for a Flutter application.
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return HomePageState();
+  }
+}
 
-A few resources to get you started if this is your first Flutter project:
+class HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _globalKey = new GlobalKey<ScaffoldState>();
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      key: _globalKey,
+      body: SKOnboardingScreen(
+        bgColor: Colors.white,
+        themeColor: const Color(0xFFf74269),
+        pages: pages,
+        skipClicked: (value) {
+          print(value);
+          _globalKey.currentState.showSnackBar(SnackBar(
+            content: Text("Skip clicked"),
+          ));
+        },
+        getStartedClicked: (value) {
+          print(value);
+          _globalKey.currentState.showSnackBar(SnackBar(
+            content: Text("Get Started clicked"),
+          ));
+        },
+      ),
+    );
+  }
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  final pages = [
+    SkOnboardingModel(
+        title: 'Choose your item',
+        description:
+            'Easily find your grocery items and you will get delivery in wide range',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/onboarding1.png'),
+    SkOnboardingModel(
+        title: 'Pick Up or Delivery',
+        description:
+            'We make ordering fast, simple and free-no matter if you order online or cash',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/onboarding2.png'),
+    SkOnboardingModel(
+        title: 'Pay quick and easy',
+        description: 'Pay for order using credit or debit card',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/onboarding3.png'),
+  ];
+}
+```

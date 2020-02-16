@@ -14,7 +14,7 @@ You just need to add `sk_onboarding_screen` as a [dependency in your pubspec.yam
 
 ```yaml
 dependencies:
-  sk_onboarding_screen: ^0.0.1
+sk_onboarding_screen: ^1.0.0
 ```
 
 ## Usage
