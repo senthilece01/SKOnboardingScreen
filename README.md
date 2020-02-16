@@ -21,14 +21,61 @@ dependencies:
   sk_onboarding_screen: ^0.0.1
 ```
 
-## Requirements
+## Usage
 
-* Sign In with Apple requires Xcode 11, as it requires the iOS 13 SDK. Make sure you're up-to-date.
-* Any Operating System (ie. MacOS X, Linux, Windows)
-* Any IDE with Flutter SDK installed (ie. IntelliJ, Android Studio, VSCode etc)
-* A little knowledge of Dart and Flutter
+### Import this class
 
-## License
+`import 'package:sk_onboarding_screen/sk_onboarding_screen.dart';`
+
+## SKOnboardingModel
+
+```
+  final pages = [
+    SkOnboardingModel(
+        title: 'Choose your item',
+        description:
+            'Easily find your grocery items and you will get delivery in wide range',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/onboarding1.png'),
+    SkOnboardingModel(
+        title: 'Pick Up or Delivery',
+        description:
+            'We make ordering fast, simple and free-no matter if you order online or cash',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/onboarding2.png'),
+    SkOnboardingModel(
+        title: 'Pay quick and easy',
+        description: 'Pay for order using credit or debit card',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/onboarding3.png'),
+  ];
+```
+### Pass it into SKOnboardingScreen Widget
+
+```
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      body: SKOnboardingScreen(
+        bgColor: Colors.white,
+        themeColor: const Color(0xFFf74269),
+        pages: pages,
+        skipClicked: (value) {
+          print("Skip");
+        },
+        getStartedClicked: (value) {
+          print("Get Started");
+        },
+      ),
+    );
+  }
+```
+
+## 📃License
 
     Copyright 2019, Senthil Kumar
 
