@@ -88,8 +88,3 @@ import 'package:sk_onboarding_screen/sk_onboarding_screen.dart;
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-<<<<<<< HEAD
-=======
-
-### ⭐ Show some ❤️ and star if you like what you see ⭐
->>>>>>> 212fe3081ab2772bce78d59f4a2d0a78536cd5cc
