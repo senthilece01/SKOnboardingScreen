@@ -11,6 +11,39 @@ class SKOnboardingScreen extends StatefulWidget {
   final ValueChanged<String> skipClicked;
   final ValueChanged<String> getStartedClicked;
 
+  String skipLabelText = 'Skip';
+  String getStartedLabelText = 'Get Started';
+
+  TextStyle titleStyle;
+  TextStyle descriptionStyle;
+  TextStyle getStartedTextStyle = new TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w500
+              );
+
+  TextStyle _titleStyle(SkOnboardingModel page) {
+    if (titleStyle != null) {
+      return titleStyle;
+    } 
+    return TextStyle(
+              fontWeight: FontWeight.w700,
+              color: page.titleColor,
+              fontSize: 20,
+            );
+  }
+
+  TextStyle _descriptionStyle(SkOnboardingModel page) {
+    if (descriptionStyle != null) {
+      return descriptionStyle;
+    } 
+    return TextStyle(
+              fontWeight: FontWeight.w400,
+              color: page.descripColor,
+              fontSize: 16,
+            );
+  }
+
   SKOnboardingScreen({
     Key key,
     @required this.pages,
@@ -18,6 +51,11 @@ class SKOnboardingScreen extends StatefulWidget {
     @required this.themeColor,
     @required this.skipClicked,
     @required this.getStartedClicked,
+    this.skipLabelText,
+    this.getStartedLabelText,
+    this.titleStyle,
+    this.descriptionStyle,
+    this.getStartedTextStyle
   }) : super(key: key);
 
   @override
@@ -43,12 +81,6 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
       children.add(_showPageData(widget.pages[i]));
     }
     return children;
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
   }
 
   Widget _indicator(bool isActive) {
@@ -85,7 +117,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
                         widget.skipClicked("Skip Tapped");
                       },
                       child: Text(
-                        'Skip',
+                        widget.skipLabelText,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
@@ -162,20 +194,12 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
           SizedBox(height: 30.0),
           Text(
             page.title,
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              color: page.titleColor,
-              fontSize: 20,
-            ),
+            style: widget._titleStyle(page),
           ),
           SizedBox(height: 15.0),
           Text(
             page.description,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              color: page.descripColor,
-              fontSize: 16,
-            ),
+            style: widget._descriptionStyle(page),
           ),
         ],
       ),
@@ -192,12 +216,9 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
             borderRadius: new BorderRadius.all(Radius.circular(6.0))),
         child: new Center(
           child: new Text(
-            'Get Started',
-            style: new TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500),
-          ),
+            widget.getStartedLabelText,
+            style: widget.getStartedTextStyle,
+          )
         ),
       ),
     );
