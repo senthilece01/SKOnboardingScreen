@@ -16,6 +16,11 @@ class SKOnboardingScreen extends StatefulWidget {
 
   TextStyle titleStyle;
   TextStyle descriptionStyle;
+  TextStyle getStartedTextStyle = new TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w500
+              );
 
   TextStyle _titleStyle(SkOnboardingModel page) {
     if (titleStyle != null) {
@@ -49,7 +54,8 @@ class SKOnboardingScreen extends StatefulWidget {
     this.skipLabelText,
     this.getStartedLabelText,
     this.titleStyle,
-    this.descriptionStyle
+    this.descriptionStyle,
+    this.getStartedTextStyle
   }) : super(key: key);
 
   @override
@@ -211,11 +217,8 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
         child: new Center(
           child: new Text(
             widget.getStartedLabelText,
-            style: new TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.w500),
-          ),
+            style: widget.getStartedTextStyle,
+          )
         ),
       ),
     );
