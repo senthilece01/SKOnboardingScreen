@@ -58,7 +58,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
-        color: isActive ? widget.themeColor : Color(0xFF929794),
+        color: isActive ? widget.themeColor : Colors.blue[100],
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -68,7 +68,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.bgColor,
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
+      body:AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: SafeArea(
           child: Container(
@@ -76,26 +76,11 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                 SizedBox(height: 30,),
                   Container(
-                    alignment: Alignment.centerRight,
-                    child: FlatButton(
-                      onPressed: () {
-                        widget.skipClicked("Skip Tapped");
-                      },
-                      child: Text(
-                        'Skip',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 500.0,
+                    height: 450.0,
                     color: Colors.transparent,
                     child: PageView(
                         physics: ClampingScrollPhysics(),
@@ -107,6 +92,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
                         },
                         children: buildOnboardingPages()),
                   ),
+                  SizedBox(height: 15,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: _buildPageIndicator(),
@@ -118,10 +104,10 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
                             child: Padding(
                               padding: EdgeInsets.only(right: 20, bottom: 10),
                               child: FloatingActionButton(
-                                backgroundColor: widget.bgColor,
+                                backgroundColor: Colors.white,
                                 child: Icon(
                                   Icons.arrow_forward,
-                                  color: widget.themeColor,
+                                  color: const Color(0xFF0093D9),
                                 ),
                                 onPressed: () {
                                   _pageController.nextPage(
@@ -146,37 +132,40 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
     );
   }
 
-  Widget _showPageData(SkOnboardingModel page) {
+  Widget _showPageData(SkOnboardingModel page,) {
     return Padding(
       padding: EdgeInsets.all(40.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Center(
             child: Image(
               image: AssetImage(page.imagePath),
-              height: 300.0,
-              width: 300.0,
+              height: page.hImage,
+              width: page.wImage,
             ),
           ),
-          SizedBox(height: 30.0),
-          Text(
+          SizedBox(height: 15.0),
+          Center(
+            child: Text(
             page.title,
             style: TextStyle(
               fontWeight: FontWeight.w700,
               color: page.titleColor,
-              fontSize: 20,
+              fontSize: 25,
             ),
-          ),
-          SizedBox(height: 15.0),
-          Text(
+          )),
+          SizedBox(height: 10.0),
+          Center(
+            child: Text(
+
             page.description,
-            style: TextStyle(
+            textAlign: TextAlign.center,  
+          style: TextStyle(
               fontWeight: FontWeight.w400,
               color: page.descripColor,
-              fontSize: 16,
+              fontSize: 20,
             ),
-          ),
+          )),
         ],
       ),
     );
@@ -188,8 +177,9 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
       child: new Container(
         height: 50.0,
         decoration: new BoxDecoration(
-            color: widget.themeColor,
-            borderRadius: new BorderRadius.all(Radius.circular(6.0))),
+           border: Border.all(color: Colors.white),
+            color: const Color(0xFF0093D9),
+            borderRadius: new BorderRadius.all(Radius.circular(10.0))),
         child: new Center(
           child: new Text(
             'Get Started',
@@ -202,10 +192,12 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
       ),
     );
 
-    return new Padding(
+    return new Container(
+      color:const Color(0xFF0093D9),
+      child: Padding(
         padding:
             EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0, bottom: 30.0),
-        child: loginButtonWithGesture);
+        child: loginButtonWithGesture));
   }
 
   void _getStartedTapped() {
