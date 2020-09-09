@@ -6,6 +6,8 @@ class SkOnboardingModel {
   Color titleColor;
   Color descripColor;
   String imagePath;
+  double hImage;
+  double wImage;
 
   SkOnboardingModel({
     @required this.title,
@@ -13,5 +15,8 @@ class SkOnboardingModel {
     @required this.imagePath,
     @required this.titleColor,
     @required this.descripColor,
+    @required this.hImage,
+    @required this.wImage,
+
   });
 }
