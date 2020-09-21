@@ -23,6 +23,7 @@ sk_onboarding_screen: ^1.0.1
 
 ```dart
 import 'package:sk_onboarding_screen/sk_onboarding_screen.dart;
+import 'package:sk_onboarding_screen/flutter_onboarding.dart';
 ```
 
 ## SKOnboardingModel
