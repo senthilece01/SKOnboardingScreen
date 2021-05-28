@@ -94,7 +94,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
                     ),
                   ),
                   Container(
-                    height: 500.0,
+                    // height: 500.0,
                     color: Colors.transparent,
                     child: PageView(
                         physics: ClampingScrollPhysics(),
