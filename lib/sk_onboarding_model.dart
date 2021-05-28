@@ -8,10 +8,10 @@ class SkOnboardingModel {
   String imagePath;
 
   SkOnboardingModel({
-    @required this.title,
-    @required this.description,
-    @required this.imagePath,
-    @required this.titleColor,
-    @required this.descripColor,
+    required this.title,
+    required this.description,
+    required this.imagePath,
+    required this.titleColor,
+    required this.descripColor,
   });
 }
