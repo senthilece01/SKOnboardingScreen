@@ -12,13 +12,12 @@ class SKOnboardingScreen extends StatefulWidget {
   final ValueChanged<String> getStartedClicked;
 
   SKOnboardingScreen({
-    Key key,
-    @required this.pages,
-    @required this.bgColor,
-    @required this.themeColor,
-    @required this.skipClicked,
-    @required this.getStartedClicked,
-  }) : super(key: key);
+    required this.pages,
+    required this.bgColor,
+    required this.themeColor,
+    required this.skipClicked,
+    required this.getStartedClicked,
+  });
 
   @override
   SKOnboardingScreenState createState() => SKOnboardingScreenState();
@@ -95,7 +94,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
                     ),
                   ),
                   Container(
-                    height: 500.0,
+                    // height: 500.0,
                     color: Colors.transparent,
                     child: PageView(
                         physics: ClampingScrollPhysics(),
